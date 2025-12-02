@@ -1,7 +1,6 @@
-import { ScreenContent } from '@/components/ScreenContent';
+import './global.css';
 import { StatusBar } from 'expo-status-bar';
 
-import './global.css';
 import { LoginScreen } from '@/screens/login';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
