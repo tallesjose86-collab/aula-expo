@@ -1,37 +1,42 @@
-import { ButtonCustomizado } from "@/components/botaoCustomizado";
-import { InputCustomizado } from "@/components/inputCustomizado";
-import { useState } from "react";
-import { Text, View } from "react-native";
+import { ButtonCustomizado } from '@/components/botaoCustomizado';
+import { InputCustomizado } from '@/components/inputCustomizado';
+import { useState } from 'react';
+import { Text, View } from 'react-native';
 
 export function LoginScreen() {
-  const [login, setLogin] = useState("");
-  const [senha, setSenha] = useState("");
+  const [login, setLogin] = useState('');
+  const [senha, setSenha] = useState('');
 
+  function logar() {
+    console.log('login', login, 'senha', senha);
+  }
 
   return (
     <View className="flex-1 items-center justify-center">
-      <View className="w-full p-5 gap-5 items-center">
+      <View className="w-full items-center gap-5 p-5">
         <Text className="text-3xl">Nosso app </Text>
 
-        <InputCustomizado 
-          placeholder={"Login"}
-          onChangeText={(text) => setLogin(text)}
-        />
-        <InputCustomizado 
-          placeholder="Senha"
-          onChangeText={(text) => setSenha(text)}
-          secureTextEntry={true}
-        />
-        <ButtonCustomizado title="Entrar"
-          onPress={() => {
-            console.log("Login:", login, 'Senha:', senha);
+        <InputCustomizado
+          placeholder={'Login'}
+          onChangeText={(text) => {
+            setLogin(text);
           }}
         />
+        <InputCustomizado
+          placeholder="Senha"
+          secureTextEntry={true}
+          onChangeText={(text) => {
+            setSenha(text);
+          }}
+        />
+        <ButtonCustomizado title="Entrar" onPress={logar} />
 
-        <Text className="text-blue-400">
-          Esqueceu a Senha?
-        </Text>
+        <View className='flex-row gap-4'>
+          <Text className="text-blue-400 text-xl">Cadastrar-se</Text>
+          <Text className="text-xl">|</Text>
+          <Text className="text-blue-400 text-xl">Esqueceu a Senha?</Text>
+        </View>
       </View>
     </View>
-  )
+  );
 }
