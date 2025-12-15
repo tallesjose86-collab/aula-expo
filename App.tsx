@@ -8,13 +8,14 @@ import { ListasScreen } from '@/screens/listas';
 import { TelaSoma } from '@/screens/TelaSoma';
 import { TelaContador } from '@/screens/TelaContador';
 import { TelaParImpar } from '@/screens/TelaParImpar';
+import { TelaMedia } from '@/screens/TelaMedia';
 
 
 export default function App() {
   return (
     <>
       <SafeAreaView className="flex-1">
-        <TelaParImpar />
+        <TelaSoma />
       </SafeAreaView>
 
       <StatusBar style="auto" />
