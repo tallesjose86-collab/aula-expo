@@ -21,34 +21,31 @@ export function TelaSoma() {
 
   return (
     <View className="flex-1 items-center justify-center p-5">
-      <Text className="text-3xl mb-4">Somar 3 Números</Text>
+      <Text className="text-3xl mb-4">Soma</Text>
 
       <InputCustomizado
-        placeholder="Número 1"
+        placeholder="Valor 1"
         keyboardType="numeric"
         onChangeText={setN1}
         value={n1}
       />
 
       <InputCustomizado
-        placeholder="Número 2"
+        placeholder="Valor 2"
         keyboardType="numeric"
         onChangeText={setN2}
         value={n2}
       />
 
       <InputCustomizado
-        placeholder="Número 3"
+        placeholder="Valor 3"
         keyboardType="numeric"
         onChangeText={setN3}
         value={n3}
       />
 
       <ButtonCustomizado title="Calcular" onPress={calcular} />
-
-      {resultado !== null && (
-        <Text className="text-xl mt-4">Resultado: {resultado}</Text>
-      )}
+       <Text className="text-xl mt-4">Resultado: {resultado}</Text>
     </View>
   );
 }
