@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { Text, View, FlatList, ScrollView } from 'react-native';
 import { InputCustomizado } from '@/components/inputCustomizado';
 import { ButtonCustomizado } from '@/components/botaoCustomizado';
+import { getData, storeData } from '@/utils/storage';
+import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 export function Listas2Screen() {
     const [item, setItem] = useState("");
@@ -14,15 +16,28 @@ export function Listas2Screen() {
 
         
         setLista([...lista, Number(item)]);
+        storeData({key: 'lista2', value: JSON.stringify([...lista, Number(item)])});
         setItem("");
     }
 
 
     function limpaLista() {
         setLista([]);
+        storeData({key: 'lista2', value: JSON.stringify([])});
+    }
+    async function carregarLista() {
+        const dados = await getData('lista2');
+        if(dados) {
+            setLista(dados);
+        }
     }
 
+    useEffect(() => {
+        carregarLista();
+    }, []);
 
+
+   
     return (
         <View className='flex-1 itens-center gap-4 p-3'>
             <Text className='text 4xl m-3'>Lista de Itens impar ou par</Text>
